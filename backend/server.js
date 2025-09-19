@@ -13,7 +13,7 @@ app.use(express.json());
 const authRouter=require('./routes/auth');
 app.use('/auth', authRouter);
 
-const uri = 'mongodb://localhost:27017/mydatabase';
+const uri = process.env.MONGODB_URI;
 mongoose.connect(uri).then(() => {
     console.log('Connected to MongoDB');
 }).catch(err => {
